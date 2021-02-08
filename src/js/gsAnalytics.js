@@ -16,6 +16,9 @@ var gsAnalytics = (function() {
 
   function initAsPromised() {
     return new Promise(function(resolve) {
+      resolve();
+      return;
+
       try {
         ga('create', 'UA-167314577-2', 'auto');
         ga('set', 'checkProtocolTask', function() {});
@@ -29,6 +32,7 @@ var gsAnalytics = (function() {
   }
 
   function setUserDimensions() {
+    return;
     const dimensions = {
       [DIMENSION_VERSION]: chrome.runtime.getManifest().version + '',
       [DIMENSION_SCREEN_CAPTURE]:
@@ -44,6 +48,8 @@ var gsAnalytics = (function() {
   }
 
   function performStartupReport() {
+    return;
+
     const category = 'System';
     const action = gsSession.getStartupType();
 
@@ -87,6 +93,7 @@ var gsAnalytics = (function() {
   }
 
   function performPingReport() {
+    return;
     const category = 'System';
     const action = 'Ping';
 
@@ -103,12 +110,15 @@ var gsAnalytics = (function() {
   }
 
   function reportPageView(pageName) {
+    return;
     ga('send', 'pageview', pageName);
   }
   function reportEvent(category, action, label) {
+    return;
     ga('send', 'event', category, action, label);
   }
   function reportException(errorMessage) {
+    return;
     ga('send', 'exception', {
       exDescription: errorMessage,
       exFatal: false,
